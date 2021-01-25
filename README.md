@@ -1,0 +1,2 @@
+# Tendies
+stonk trading
