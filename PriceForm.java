@@ -4,9 +4,9 @@ import java.io.*;
 
 
 public class PriceForm {
-    public float[][] bid;
-    public float[][] ask;
-    public float[][] market;
+    public price bid;
+    public price ask;
+    public price market;
     
     public PriceForm(){
         
