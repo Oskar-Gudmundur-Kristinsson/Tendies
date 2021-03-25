@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TryTrading</string>
+    <string name="password">password</string>
+    <string name="username">username</string>
+    <string name="login">Login</string>
+    <string name="buy">Buy</string>
+    <string name="sell">Sell</string>
+    <string name="stock_name">Stock name</string>
+</resources>
