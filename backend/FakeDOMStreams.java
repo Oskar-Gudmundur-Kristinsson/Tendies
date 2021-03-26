@@ -1,11 +1,13 @@
-
-
 import java.util.*;
+import java.util.Date;
 import java.net.*;
 import java.io.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.*;
+import java.text.*;
+import java.time.format.DateTimeFormatter;
 
 public class FakeDOMStreams extends Thread{
     public String filePath = "D:\\stonks\\MDFF_CME_20130714-20130715_7818_0";
@@ -18,6 +20,24 @@ public class FakeDOMStreams extends Thread{
     public FakeDOMStreams(int port) throws IOException{
         serverSocket = new ServerSocket(port);
         serverSocket.setSoTimeout(10000);
+    }
+    /*
+        Date date = Calendar.getInstance().getTime();
+        DateFormat dF = new SimpleDateFormat("yyyyMMdd");
+        String strDate = dF.format(date);
+        System.out.println(strDate + FIXTimeStamp.substring(8,15));
+        LocalDateTime FIXDate = LocalDateTime.parse(strDate + FIXTimeStamp.substring(8,15));
+    */
+    public long toEpoc(String FIXTimeStamp){
+        Date date = Calendar.getInstance().getTime();
+        DateFormat dF = new SimpleDateFormat("yyyyMMdd");
+        String strDate = dF.format(date);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss", Locale.US);
+        LocalDateTime FIXDate = LocalDateTime.parse(strDate + FIXTimeStamp.substring(8,14), formatter);
+        Instant ins = FIXDate.atZone(ZoneId.systemDefault()).toInstant();
+        long ret = ins.toEpochMilli();
+        ret = ret + Long.parseLong(FIXTimeStamp.substring(14,17));
+        return ret;
     }
 
     public void run() {
@@ -34,7 +54,21 @@ public class FakeDOMStreams extends Thread{
                 
                 DOMParser p = new DOMParser(DOMFile, 1);
                 
-                //sendTradeData(out);
+                while(p.isSorted == false){
+                    //do nothing
+                }
+                //System.out.println(Long.toString(toEpoc(p.sortedData[1])));
+                
+                Date date = Calendar.getInstance().getTime();
+                int indexClosestToNow;
+                for(int i = 0; i < p.sortedData.length; i++){
+                    if(toEpoc(p.sortedData[i]) > date.getTimeInMillis()){
+                        indexClosestToNow = i;
+                        break;
+                    }
+                }
+                
+
             }
             catch (SocketTimeoutException s) {
                 System.out.println("Socket timed out!");
@@ -45,8 +79,6 @@ public class FakeDOMStreams extends Thread{
             }
         }
     }
-
-
 
     public static void main(String [] args) {
         int port = Integer.parseInt(args[0]);
