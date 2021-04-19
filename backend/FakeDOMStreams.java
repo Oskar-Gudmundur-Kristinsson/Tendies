@@ -11,7 +11,7 @@ import java.text.*;
 import java.time.format.DateTimeFormatter;
 
 public class FakeDOMStreams extends Thread{
-    public String filePath = "D:\\stonks\\MDFF_CME_20130714-20130715_7818_0";
+    public String filePath = "C:\\Users\\Vala\\AndroidStudioProjects\\Tendies\\MDFF_CME_20130714-20130715_7817_0";
     private File DOMFile = new File(filePath);
     private int port;
     private String serverName;

@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 //TODO: Header
 //TODO: Get stock information
-//TODO: Footer menu
+//TODO: Footer menu - seperate class
 
 //TODO: Refactor and move popup stuff to a separate class
 
@@ -31,6 +31,7 @@ public class StockViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stock_view);
 
         mButtonBuy = (Button) findViewById(R.id.buttonBuy);
+        mButtonSell = (Button) findViewById(R.id.buttonSell);
         popUp = new PopupWindow(this);
         LinearLayout layout = new LinearLayout(this);
         TextView s = new TextView(this);
@@ -38,6 +39,14 @@ public class StockViewActivity extends AppCompatActivity {
         Button confirm = new Button(this);
 
         mButtonBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popUp.showAtLocation(layout, Gravity.CENTER_VERTICAL, 10, 10);
+                popUp.update(10, 10, 900, 800);
+            }
+        });
+
+        mButtonSell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 popUp.showAtLocation(layout, Gravity.CENTER_VERTICAL, 10, 10);

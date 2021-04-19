@@ -6,4 +6,6 @@
     <string name="buy">Buy</string>
     <string name="sell">Sell</string>
     <string name="stock_name">Stock name</string>
+    <string name="trading">Trading</string>
+    <string name="book">Book</string>
 </resources>

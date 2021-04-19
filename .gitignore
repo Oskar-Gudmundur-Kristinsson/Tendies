@@ -29,13 +29,14 @@ hs_err_pid*
 /shelf/
 *.iml
 .gradle
-/local.properties
 /.idea/workspace.xml
 /.idea/libraries
 .DS_Store
 /build
 /captures
 .externalNativeBuild
+
+/local.properties
 
 # FIX file, too large for git
 /MDFF_CME_20130714-20130715_7817_0

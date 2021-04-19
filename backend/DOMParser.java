@@ -67,7 +67,7 @@ public class DOMParser{
     }
 
     public static void main(String [] args){
-        File f = new File("D:\\stonks\\MDFF_CME_20130714-20130715_7817_0");
+        File f = new File("C:\\Users\\Vala\\AndroidStudioProjects\\Tendies\\MDFF_CME_20130714-20130715_7817_0");
         DOMParser p =new DOMParser(f,1);
         for(int i= 0; i < 5; i++){
             System.out.println(p.sortedData[i]);
