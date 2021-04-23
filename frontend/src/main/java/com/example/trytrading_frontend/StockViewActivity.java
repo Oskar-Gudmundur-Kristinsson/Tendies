@@ -2,6 +2,7 @@ package com.example.trytrading_frontend;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -24,11 +25,18 @@ public class StockViewActivity extends AppCompatActivity {
     private Button mButtonBuy;
     private Button mButtonSell;
     private PopupWindow popUp;
+    private TextView mStockName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock_view);
+
+        mStockName = (TextView) findViewById(R.id.stockName);
+
+        Intent intent = getIntent();
+        String stockName = intent.getStringExtra("KEY");
+        mStockName.setText(stockName);
 
         mButtonBuy = (Button) findViewById(R.id.buttonBuy);
         mButtonSell = (Button) findViewById(R.id.buttonSell);
@@ -56,7 +64,7 @@ public class StockViewActivity extends AppCompatActivity {
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layout.setOrientation(LinearLayout.VERTICAL);
-        s.setText("Stock name");
+        s.setText(stockName);
         cancel.setText("Cancel");
         confirm.setText("Confirm");
         layout.addView(s, params);

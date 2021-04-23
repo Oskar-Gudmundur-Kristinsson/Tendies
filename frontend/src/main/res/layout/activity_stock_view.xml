@@ -14,6 +14,7 @@
         android:layout_marginStart="176dp"
         android:layout_marginTop="39dp"
         android:text="@string/stock_name"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,4 +48,37 @@
         app:layout_constraintStart_toEndOf="@+id/buttonBuy"
         app:layout_constraintTop_toBottomOf="@+id/stockName"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="217dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="214dp"
+        android:text="@string/graph_visualization_of_changes_in_price"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBuy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stockName" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="205dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
+        android:background="@color/white"
+        android:contentDescription="@string/favorite"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/stockName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.526"
+        app:srcCompat="@android:drawable/btn_star_big_off" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

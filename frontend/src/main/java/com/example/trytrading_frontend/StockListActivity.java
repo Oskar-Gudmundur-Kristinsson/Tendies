@@ -25,8 +25,9 @@ public class StockListActivity extends AppCompatActivity {
 
     private ListView mStocksList;
 
-    private String[] stocks = {"Stock1", "Stock2", "Stock3"};
+    private String[] stocks = {"Gold", "Bitcoin", "Ripple", "Ethereum", "USD", "EUR", "Palladium", "Platinum", "Silver", "GBP"};
     private List<String> allStocks = new ArrayList<String>(Arrays.asList(stocks));
+    public String currentStockName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,9 @@ public class StockListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> listItem, View v, int position, long id) {
                 Intent i = new Intent(StockListActivity.this, StockViewActivity.class);
+                currentStockName = listItem.getItemAtPosition(position).toString();
+                i.putExtra("KEY", currentStockName);
+                System.out.println(currentStockName);
                 startActivity(i);
             }
         });

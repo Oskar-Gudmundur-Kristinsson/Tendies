@@ -8,4 +8,6 @@
     <string name="stock_name">Stock name</string>
     <string name="trading">Trading</string>
     <string name="book">Book</string>
+    <string name="graph_visualization_of_changes_in_price">Graph visualization of changes in price</string>
+    <string name="favorite">favorite</string>
 </resources>
